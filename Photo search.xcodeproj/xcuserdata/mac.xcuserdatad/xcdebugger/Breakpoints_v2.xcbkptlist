@@ -14,9 +14,9 @@
             filePath = "Photo search/Models/ContentView-ViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "fertchinitialitems()"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "fetchInitialItems()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

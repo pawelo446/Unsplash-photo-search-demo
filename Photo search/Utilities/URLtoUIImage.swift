@@ -1,10 +1,3 @@
-//
-//  URLtoUIImage.swift
-//  Photo search
-//
-//  Created by Paweł on 18/05/2022.
-//
-
 import Foundation
 import SwiftUI
 

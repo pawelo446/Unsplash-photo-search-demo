@@ -14,7 +14,5 @@ struct ShareSheetView: UIViewControllerRepresentable {
         controller.completionWithItemsHandler = callback
         return controller
     }
-    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
-        // nothing to do here
-    }
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
 }

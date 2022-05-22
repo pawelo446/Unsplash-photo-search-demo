@@ -1,9 +1,3 @@
-//
-//  ApiResponseModel.swift
-//  Photo search
-//
-//  Created by Paweł on 17/05/2022.
-//
 
 import Foundation
 

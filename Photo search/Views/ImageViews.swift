@@ -1,10 +1,3 @@
-//
-//  ImageView.swift
-//  Photo search
-//
-//  Created by Paweł on 16/05/2022.
-//
-
 import SwiftUI
 
 struct MainScreenImageView: View {

@@ -8,7 +8,6 @@ struct AlertItem: Identifiable {
 }
 
 enum AlertContext {
-
     static let invalidURL = AlertItem(title: Text("Couldn't process phrase"),
                             message: Text("There is an error trying to reach the server. If this persists, please contact support."),
                             dismissButton: .default(Text("Ok")))

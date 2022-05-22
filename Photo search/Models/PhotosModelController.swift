@@ -2,17 +2,16 @@ import Foundation
 import SwiftUI
 
 enum Constants {
-    static var someKey: String { "bfeknoZmShMsBPmD_6ZNp_0QUtkMcOAX5tP5UiKHDNs" }
+    static var apiKey: String { "bfeknoZmShMsBPmD_6ZNp_0QUtkMcOAX5tP5UiKHDNs" }
 }
 
 protocol PhotosModelController{
     func fetchPhotos(phrase: String, page: Int, completion: @escaping (Result<APIResponse, APError>) -> Void)
 }
-//  view model builder,
 
 class PhotosModelControllerImpl: PhotosModelController {
     func fetchPhotos(phrase: String, page: Int, completion: @escaping (Result<APIResponse, APError>) -> Void) {
-        let urlString = "https://api.unsplash.com/search/photos?page=\(page)&per_page=30&query=\(phrase.replacingOccurrences(of: " ", with: "+").lowercased())&client_id=\(Constants.someKey)"
+        let urlString = "https://api.unsplash.com/search/photos?page=\(page)&per_page=30&query=\(phrase.replacingOccurrences(of: " ", with: "+").lowercased())&client_id=\(Constants.apiKey)"
 
         guard let url = URL(string: urlString) else {
             completion(.failure(.invalidURL))

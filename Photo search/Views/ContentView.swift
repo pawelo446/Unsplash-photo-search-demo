@@ -3,7 +3,6 @@ import Foundation
 
 struct ContentView: View {
     @ObservedObject private var viewModel = ViewModel()
-    
     var body: some View {
         NavigationView {
             ZStack {
@@ -19,39 +18,34 @@ struct ContentView: View {
                     }
                     .padding()
                 }
-                    
-                    ScrollView{
-                        LazyVGrid(columns: [
-                            .init(),
-                            .init()
-                        ]) {
-                            ForEach(viewModel.photos){image in
-                                NavigationLink(destination: DetailView(viewModel: DetailView.ViewModel(photoURL: image.urls.full, description: image.description))) {
-                                    MainScreenImageView(photoURL: image.urls.small)
-                                }
-                                .onAppear {
-                                    viewModel.loadMore(currentItem: image)
-                                }
+                ScrollView{
+                    LazyVGrid(columns: [
+                        .init(),
+                        .init()
+                    ]) {
+                        ForEach(viewModel.photos){image in
+                            NavigationLink(destination: DetailView(viewModel: DetailView.ViewModel(photoURL: image.urls.full, description: image.description))) {
+                                MainScreenImageView(photoURL: image.urls.small)
+                            }
+                            .onAppear {
+                                viewModel.loadMore(currentItem: image)
                             }
                         }
-                        .padding(.horizontal, 5)
                     }
-                
-                    .alert(item: $viewModel.alertItem) { alertItem in
-                        Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
-                    }
-                
+                    .padding(.horizontal, 5)
                 }
+                .alert(item: $viewModel.alertItem) { alertItem in
+                    Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+                }
+            }
             .searchable(text: $viewModel.searchValue, placement: .navigationBarDrawer(displayMode: .always))
             .onSubmit(of: .search, {
-                viewModel.fertchinitialitems()
+                viewModel.fetchInitialItems()
             })
-                .navigationTitle("Browse unsplash")
-            
+            .navigationTitle("Browse unsplash")
         }
     }
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
